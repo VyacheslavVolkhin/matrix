@@ -1,6 +1,109 @@
 /* ----------------------------------- *\
 			forms elements styles
 \* ----------------------------------- */
+.frm-popup {
+	margin: 0 auto;
+	.frm-field {
+		margin-bottom: 1rem;
+	}
+	.frm-row-submit {
+		padding-top: 1.5rem;
+		.btn {
+			width: 100%;
+			.button-content {
+				width: 100%;
+			}
+		}
+	}
+	.field-info {
+		padding-top: 1.5rem;
+		margin-bottom: 0;
+		text-align: center;
+		font-size: 13px;
+		line-height: 20px;
+		color: rgba(255, 255, 255, 0.30);
+		a {
+			&:not(:hover) {
+				color: inherit;
+			}
+		}
+	}
+	.field-links {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		padding-top: 2rem;
+		margin-bottom: 0;
+		font-size: 13px;
+		line-height: 20px;
+		font-weight: 600;
+		color: var(--clr-title);
+		a {
+			&:not(:hover) {
+				color: inherit;
+				&.link-att {
+					color: var(--clr-att);
+				}
+			}
+		}
+	}
+}
+.frm-field-timer {
+	display: flex;
+	align-items: center;
+	min-height: 6rem;
+	font-size: 13px;
+	line-height: 20px;
+	color: rgba(255, 255, 255, 0.50);
+	.frm-timer {
+		flex-shrink: 0;
+		padding: 0 15px 0 0;
+		font-size: 6rem;
+		line-height: 1;
+		font-weight: 400;
+		color: var(--clr-title);
+	}
+}
+.frm-field-action-total {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	min-height: 6rem;
+	.frm-total {
+		display: block;
+		font-size: (24/18em);
+		overflow: hidden;
+		position: relative;
+		text-transform: uppercase;
+		font-weight: bold;
+		color: var(--clr-att);
+		padding-right: 15px;
+	}
+}
+.frm-field-action  {
+	display: block;
+	position: relative;
+	line-height: 1;
+	.form-input {
+		padding-right: 140px;
+	}
+	.frm-action {
+		display: flex;
+		align-items: center;
+		position: absolute;
+		top: 0;right: 0;bottom: 0;
+		padding: 0 3rem 0 0;
+		font-size: 13px;
+		line-height: 20px;
+		font-weight: 400;
+		color: rgba(255, 255, 255, 0.50);
+		a {
+			&:not(:hover) {
+				color: inherit;
+			}
+		}
+	}
+}
 .frm-field-info {
 	display: flex;
 	flex-wrap: wrap;
@@ -70,6 +173,7 @@
 	font-weight: 400;
 	color: var(--clr-title);
 	margin-bottom: 1rem;
+	min-height: (30/16em);
 }
 .frm-main-search {
 	.form-input {
@@ -213,6 +317,33 @@
 		color: inherit;
 		&:hover {
 			color: var(--clr-att);
+		}
+	}
+}
+@media (max-width: 1023px) {
+	.frm-field-action  {
+		display: block;
+		position: relative;
+		line-height: 1;
+		.form-input {
+			padding-right: 110px;
+		}
+		.frm-action {
+			font-size: 12px;
+			padding-right: 15px;
+		}
+	}
+}
+@media (max-width: 479px) {
+	.frm-field-action-total {
+		.btn {
+			.button-content {
+				padding: 0 24px;
+				min-width: 0;
+			}
+		}
+		.frm-total {
+			font-size: 16px;
 		}
 	}
 }

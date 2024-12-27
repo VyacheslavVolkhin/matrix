@@ -110,11 +110,31 @@ html.with-fancybox body.hide-scrollbar {
 	}
 }
 .footer {
-	overflow: hidden;
 	background: #0D0E11;
 	font-size: 12px;
 	line-height: (20/12);
 	color: #ffffff40;
+	.button-chat {
+		position: fixed;
+		right: 0;
+		bottom: 38rem;
+		z-index: 20;
+		width: 8.8rem;
+			height: 8.8rem;
+		.button-content {
+			width: 8.8rem;
+			height: 8.8rem;
+			min-width: 0;
+			padding: 0;
+		}
+		.button-ico {
+			margin: 0 auto;
+			width: 4rem;height: 4rem;
+		}
+		&:has(.button-content):before {
+			height: 6.2rem;width: 3.7rem;
+		}
+	}
 	a {
 		&:not(.btn, .logo) {
 			color: var(--clr-base);
@@ -483,6 +503,13 @@ html.with-fancybox body.hide-scrollbar {
         margin-left: calc(var(--paddingContainer) * -1);
         margin-right: calc(var(--paddingContainer) * -1);
     }
+	.footer {
+		.button-chat {
+			bottom: 100%;
+			position: absolute;
+			margin-bottom: 5rem;
+		}
+	}
 	.footer-main-panel {
 		flex-wrap: wrap;
 		.info-inner-wrap {

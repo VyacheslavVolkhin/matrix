@@ -61,6 +61,185 @@ li {
 		margin-top: -0.4em;
 	}
 }
+ol {
+	counter-reset: li; 
+	list-style: none;
+	padding-left: 5.7rem;
+	.items-wrap {
+		margin: 2rem -5px -10px -5px;
+		&:first-child {
+			margin-top: 0;
+		}
+	}
+	.item-wrap {
+		padding: 0 5px;
+		margin-bottom: 10px;
+		width: 25%;
+	}
+	ol {
+		margin: 0;
+		padding: 0;
+		ol {
+			li {
+				&:before {
+					font-size: (14/18em);
+				}
+			}
+		}
+	}
+	&>li {
+		position: relative;
+		padding-left: 0;
+		margin-bottom: 14px;
+		&:before {
+			content: counter(li); 
+			counter-increment: li; 
+			font-weight: 900;
+			border-radius: 0;
+			background-color: transparent;
+			display: block;
+			margin: 0;
+			padding: 0;
+			position: absolute;
+			top: 0;
+			left: -5.7rem;
+			width: 5.7rem;
+			height: auto;
+			color: var(--clr-att);
+			font-size: 1em;
+			letter-spacing: 0.1em;
+		}
+	}
+	p {
+		margin-bottom: 14px;
+	}
+	.li-title {
+		font-size: (20/18em);
+		font-weight: 600;
+		text-transform: none;
+		color: var(--clr-title);
+		margin: 0 0 8px 0;
+	}
+	.li-title-main {
+		display: flex;
+		align-items: center;
+		margin-bottom: 2.7rem;
+		padding: 8px 15px 8px 16px;
+		background: fade(#fff, 5);
+		clip-path: polygon(0 0, 0 0, 100% 0, 100% calc(100% - 2.3rem), calc(100% - 2.3rem) 100%, 0 100%);
+		min-height: 4.6rem;
+		line-height: 1.1;
+		margin-left: -0.7rem;
+		margin-right: 0;
+		&.title-inner {
+			font-size: (20/18em);
+			font-weight: 600;
+			line-height: 1;
+			color: var(--clr-title);
+			background: none;
+			margin-bottom: 0;
+			padding-left: 0;
+		}
+		&.js-btn-tgl {
+			padding-right: 7rem;
+			cursor: pointer;
+			&~ol {
+				display: none;
+			}
+			&:before {
+				content: "";
+				display: block;
+				width: 24px;
+				height: 24px;
+				position: absolute;
+				background: url(../img/icons/arrow-select.svg) center no-repeat;
+				background-size: 100% auto;
+				top: 50%;right: 3rem;
+				margin-top: -12px;
+				transition: all ease 0.2s;
+			}
+			&.active {
+				&:before {
+					rotate: 180deg;
+				}
+				&~ol {
+					display: block;
+				}
+			}
+		}
+	}
+	ol {
+		animation: fadein ease 0.2s;;
+	}
+	li {
+		&:has(>.li-title-main:first-child) {
+			&:before {
+				height: 4.6rem;
+				width: 5rem;
+				line-height: 4.6rem;
+				text-align: center;
+				font-size: 2rem;
+				font-weight: 900;
+				letter-spacing: 0.1em;
+				color: #fff;
+				background: var(--clr-att);
+				clip-path: polygon(0 18px, 18px 0, 100% 0, 100% 100%, 0% 100%);
+			}
+		}
+	}
+}
+ol {
+	counter-reset: li; 
+	list-style: none;
+	ul {
+		font-weight: 500;
+		color: var(--clr-title);
+		line-height: (22/16);
+		&>li {
+			margin-bottom: 8px;
+			&:last-child {
+				margin-bottom: 0;
+			}
+			&:before {
+				top: 0.9em;
+			}
+		}
+	}
+	&>li {
+		position: relative;
+		&:before {
+			counter-increment: li;
+			content: counters(li, ".") " ";
+		}
+	}
+	li {
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+}
+ol.ol-items {
+	padding-left: 8rem;
+	li:has(>.li-title-main:first-child):before {
+		left: -8rem;
+	}
+	&>li {
+		padding-bottom: 4rem;
+		margin-bottom: 3rem;
+		position: relative;
+		&:after {
+			content: "";
+			display: block;
+			position: absolute;
+			bottom: 0;right: 0;left: -8rem;
+			height: 1px;
+			background: #ffffff10;
+		}
+	}
+}
+.list-main-toggle {
+	
+}
 .menu, .list {
     margin: 0;
     padding: 0;
@@ -180,6 +359,92 @@ h6, .h6-title {
 .text-center, .title-center {
     text-align: center;
 }
+table {
+	width: 100%;
+	font-size: 16px;
+	color: var(--clr-title);
+	line-height: (20/16);
+	border-collapse: separate;
+	border-spacing: 0 1rem;
+	&.tbl-border {
+		border-collapse: collapse;
+		border-spacing: 0;
+		th, td {
+			border-bottom: 1px solid #ffffff10;
+		}
+		tr {
+			&:first-child {
+				th, td {
+					border-top: 1px solid #ffffff10;
+				}
+			}
+		}
+	}
+	&.tbl-list {
+		th, td {
+			background: none;
+			height: 50px;
+			&:first-child {
+				padding-left: 0;
+			}
+			&:last-child {
+				padding-right: 0;
+			}
+		}
+		.td-title {
+			text-transform: none;
+		}
+	}
+	thead {
+		th, td {
+			background: none;
+			font-weight: 400;
+			color: rgba(255, 255, 255, 0.50);
+			padding-top: 0;
+			padding-bottom: 1rem;
+			height: auto;
+		}
+	}
+	th, td {
+		background: #17181C;
+		position: relative;
+		border: none;
+		text-align: left;
+		font-weight: 400;
+		vertical-align: middle;
+		height: 6rem;
+		padding: 1rem 3rem;
+	}
+	.td-ex {
+		width: 100px;
+		padding-right: 7.5rem;
+		position: relative;
+		overflow: visible;
+		&:before {
+			content: "";
+			display: block;
+			width: 24px;
+			height: 24px;
+			position: absolute;
+			background: url(../img/icons/arrow-more.svg) center no-repeat;
+			background-size: 100% auto;
+			top: 50%;left: 100%;
+			margin-left: -12px;
+			margin-top: -12px;
+			z-index: 2;
+		}
+		&+td {
+			width: 100px;
+			padding-left: 7.5rem;
+		}
+	}
+	.td-title {
+		font-size: (18/16em);
+		line-height: (20/18);
+		font-weight: 600;
+		text-transform: uppercase;
+	}
+}
 @media (max-width: 1399px) {
     :root {
         font-size: 9.5px;
@@ -196,27 +461,59 @@ h6, .h6-title {
 		--fsize: 14px;
         font-size: 8px;
     }
-
-.page-title {
-	font-size: 4rem;
-	&.title-small {
-		font-size: 3rem;
-		line-height: 1.6;
-		letter-spacing: 0.08em;
+	ol {
+		.item-wrap {
+			width: 33.33%;
+		}
 	}
-	&.title-vsmall {
-		font-size: 20px;
+	ol .li-title-main.js-btn-tgl {
+		padding-right: 50px;
 	}
-	&.title-vvsmall {
-		font-size: 16px;
-		line-height: (26/18);
+	ol .li-title-main.js-btn-tgl:before {
+		right: 10px;
 	}
-}
+	.page-title {
+		font-size: 4rem;
+		&.title-small {
+			font-size: 3rem;
+			line-height: 1.6;
+			letter-spacing: 0.08em;
+		}
+		&.title-vsmall {
+			font-size: 20px;
+		}
+		&.title-vvsmall {
+			font-size: 16px;
+			line-height: (26/18);
+		}
+	}
 }
 @media (max-width: 767px) {
     :root {
         font-size: 7px;
     }
+	ol {
+		.page-title.title-vsmall {
+			font-size: 16px;
+			min-height: 4.6rem;
+			padding-top: 3px;
+			padding-bottom: 3px;
+		}
+	}
+}
+@media (max-width: 639px) {
+	ol {
+		.item-wrap {
+			width: 50%;
+		}
+	}
+}
+@media (max-width: 479px) {
+	ol {
+		.item-wrap {
+			width: 100%;
+		}
+	}
 }
 @media (min-width: 1024px) {
     :root {

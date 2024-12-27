@@ -18,11 +18,47 @@
 	font-size: 13px;
 	text-transform: none;
 	color: var(--clr-title);
+	white-space: nowrap;
+	overflow: hidden;
+	position: relative;
+	max-width: 100%;
+	transition: all ease 0.2s;
+	&:hover, &:focus {
+		border-color: var(--clr-att);
+		&[placeholder]::-webkit-input-placeholder {color: var(--clr-title);}
+		&[placeholder]:-moz-placeholder {color: var(--clr-title);}
+		&[placeholder]::-moz-placeholder {color: var(--clr-title);}
+		&[placeholder]:-ms-input-placeholder {color: var(--clr-title);}
+	}
+	.elm-ico {
+		width: 3rem;height: 3rem;
+		flex-shrink: 0;
+	}
+	.inp-title {
+		display: block;
+		padding-left: 15px;
+		&:first-child {
+			padding-left: 0;
+		}
+	}
+	&.inp-dark {
+		background-color: #111216;
+		border-color: #111216;
+	}
 	&.inp-border {
 		border-radius: 3px;
 		background-color: transparent;
 		border-color: #ffffff15;;
 	}
+	&.inp-main {
+		font-size: 18px;
+		font-weight: 600;
+		color: var(--clr-title);
+	}
+}
+div.form-input {
+	display: flex;
+	align-items: center;
 }
 textarea.form-input {
 
@@ -334,6 +370,13 @@ select.form-input:required:invalid {
 			top: 0;right: 0;
 			z-index: 2;
 		}
+		&:not(:has(+.select-content-block)) {
+			padding-right: 10px;
+			cursor: default;
+			&:before {
+				display: none;
+			}
+		}
 		&.active {
 			&:before {
 				transform: scaleY(-1);
@@ -549,6 +592,13 @@ select.form-input:required:invalid {
 			opacity: 0.5;
 		}
     }
+	&.ico-arrow-scrollbar {
+		width: 24px;height: 24px;
+		&:before {
+			background-image: url(../img/icons/arrow-scrollbar.svg);
+			filter: none;
+		}
+	}
     &.ico-arrow-prev {
         &:before {
             .t-rotate(180deg);
@@ -588,6 +638,22 @@ select.form-input:required:invalid {
             }
         }
     }
+	&.ico-copy {
+		&:before {
+			background-image: url(../img/icons/copy.svg);
+		}
+	}
+	&.ico-close-small {
+		width: 20px;height: 20px;
+		border-radius: 5px;
+		background: #111216;
+		&:hover {
+			background: #111216;
+		}
+		&:before {
+			background-image: url(../img/icons/close-small.svg);
+		}
+	}
     &.ico-close {
         &:after, &:before {
             width: 20px;
